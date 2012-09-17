@@ -19,7 +19,7 @@ void setup()
   size(1300, 850);
   background(30);
   //smooth();
-  strokeCap(SQUARE);
+  //strokeCap(PROJECT);
   
   canvas = createGraphics(canvas_width, canvas_height, P2D);
   
@@ -27,7 +27,7 @@ void setup()
   
   canvas.beginDraw();
     canvas.background(255);
-    canvas.strokeWeight(10);
+    canvas.strokeWeight(1);
     int startPoint = canvas.height/12;
     int xWet = canvas.width/9;
     int yWet = canvas.width/3;

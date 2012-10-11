@@ -2,7 +2,7 @@
 _________________________________________________________________ */
 
 PGraphics canvas;
-int canvas_width = 3508;
+int canvas_width = 4961;
 int canvas_height = 3508;
 
 float ratioWidth = 1;
@@ -31,7 +31,7 @@ void setup()
     int cols = 10;
     int rows = 8;
     
-    int grid2Margin = 80;  // Also the size of white border - bit of a cheat
+    int grid2Margin = 240;  //80// Also the size of white border - bit of a cheat
     int grid3Margin = 30;
   
     // create multiple grid objects as a container for our grid variables
@@ -42,7 +42,7 @@ void setup()
   
     //TEXT SETTINGS
     // Text Module in upper right corner
-    canvas.textSize(300);
+    canvas.textSize(260);
     canvas.textAlign(RIGHT,TOP);
     String c = "red";
   
@@ -95,16 +95,6 @@ void setup()
   
   
   
-    canvas.fill(360);  // text should match background color
-    PFont font;
-    // The font must be located in the sketch's "data" directory to load successfully
-    //font = loadFont("Monospaced-200.vlw");
-    //font = loadFont("AmericanTypewriter-30.vlw");
-    font = loadFont("AmericanTypewriter-Bold-250.vlw");
-    //font = loadFont("Courier-Bold-250.vlw");
-    //textFont(font, 300);
-    canvas.textFont(font,260);
-    canvas.text(c, textModule.x, textModule.y, textModule.w, textModule.h);
     
     
     Module borderTrim = grid4.modules[0][0];  // cleans up any spill over with white border
@@ -113,14 +103,26 @@ void setup()
     canvas.noFill();
     canvas.rect(borderTrim.x,borderTrim.y,borderTrim.w,borderTrim.h);
   
-    canvas.strokeWeight(1);
+    canvas.strokeWeight(10);
     // we can even implement a function that draws the grid for us
-    //canvas.grid.display();
-    //canvas.grid2.display();
-    //canvas.grid3.display();
-    //canvas.grid4.display();
+    grid.display();
+    //grid2.display();
+    //grid3.display();
+    //grid4.display();
  
-    
+    canvas.fill(360);  // text should match background color
+    PFont font;
+    // The font must be located in the sketch's "data" directory to load successfully
+    //font = loadFont("Monospaced-200.vlw");
+    //font = loadFont("AmericanTypewriter-30.vlw");
+    font = loadFont("AmericanTypewriter-Bold-250.vlw");
+    //font = loadFont("Courier-Bold-250.vlw");
+    //textFont(font, 300);
+    canvas.textFont(font,860);
+    pushMatrix();
+    //canvas.scale(1.2);
+    canvas.text(c, textModule.x, textModule.y, textModule.w, textModule.h);
+    popMatrix();
   
     
   canvas.endDraw();

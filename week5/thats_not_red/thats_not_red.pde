@@ -123,7 +123,7 @@ void setup()
 
 void draw() {
   
-  ModularGrid grid  = new ModularGrid(2, 2, 60, 25);  //Modular Grid for the text
+  ModularGrid grid1  = new ModularGrid(2, 2, 60, 25);  //Modular Grid for the text
   ModularGrid grid2 = new ModularGrid(cols, rows, 0, grid2Margin);  //Modular Grid for the colors   // Keep gutter at zero for colors
   ModularGrid grid3 = new ModularGrid(cols, rows, 0, grid3Margin);  //Modular Grid for the other colors   // Keep gutter at zero for colors
   ModularGrid grid4 = new ModularGrid(1, 1, 0, 0);    // Modular grid for the white border - bit if a cheat
@@ -133,7 +133,7 @@ void draw() {
     if (key == '1') 
     {
       strokeWeight(1);
-      grid.display();
+      grid1.display();
     }
     if (key == '2') 
     {
@@ -149,10 +149,6 @@ void draw() {
     {
       strokeWeight(grid2Margin);
       grid4.display();
-    }
-    else 
-    {
-      grid.displayNone();
     }
   }
   

@@ -20,8 +20,9 @@ void setup()
   size(1280, 800);
   background(255);
   smooth();
-  noStroke();
-  fill(30);
+  //noStroke();
+  //fill(30);
+  noFill();
   
   int fontSize = 150;
   

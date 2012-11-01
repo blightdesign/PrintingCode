@@ -6,7 +6,7 @@ void setup()
   background(255); 
   smooth();
 
-  int sectionNum = 5;
+  int sectionNum = 9;
 
   WeightedRandomSet<Kolor> kolors = new WeightedRandomSet<Kolor>();
 
@@ -88,7 +88,8 @@ void setup()
       v1.set(rightBot);
       rightTop.mult(.5);
       rightBot.mult(.5);
-      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+     // translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
     }
     if (i==7)
     {

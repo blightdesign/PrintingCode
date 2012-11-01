@@ -110,6 +110,7 @@ void setup()
     PVector stepTop = new PVector(random(50,150),random(-50,50));
     PVector stepBot = new PVector(random(50,170),random(-50,50));
     
+    //Set right vectors to new vectors
     rightTop.add(stepTop);
     rightBot.add(stepBot);
   }

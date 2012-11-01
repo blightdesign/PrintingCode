@@ -6,7 +6,7 @@ void setup()
   background(255); 
   smooth();
 
-  int sectionNum = 9;
+  int sectionNum = 5;
 
   WeightedRandomSet<Kolor> kolors = new WeightedRandomSet<Kolor>();
 
@@ -71,16 +71,21 @@ void setup()
     if (i==3)
     {
       PVector v2 = new PVector(0.0, 0.0);
+      PVector v1 = new PVector(0.0, 0.0);
       v2.set(rightTop);
+      v1.set(rightBot);
       rightTop.mult(1.5);
       rightBot.mult(1.5);
-      PVector v1 = PVector.sub(v2,rightTop);
-      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      //PVector v1 = PVector.sub(v2,rightTop);
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
     }
     if (i==4)
     {
       PVector v2 = new PVector(0.0, 0.0);
+      PVector v1 = new PVector(0.0, 0.0);
       v2.set(rightTop);
+      v1.set(rightBot);
       rightTop.mult(.5);
       rightBot.mult(.5);
       translate(v2.x-rightTop.x,v2.y-rightTop.y);

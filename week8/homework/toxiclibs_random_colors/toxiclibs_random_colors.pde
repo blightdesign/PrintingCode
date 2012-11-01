@@ -6,7 +6,7 @@ void setup()
   background(255); 
   smooth();
 
-  int sectionNum = 4;
+  int sectionNum = 9;
 
   WeightedRandomSet<Kolor> kolors = new WeightedRandomSet<Kolor>();
 
@@ -18,11 +18,11 @@ void setup()
   int leftXT =  -50;
   int leftYT =   50;
   int leftXB = -100;
-  int leftYB =  350;
+  int leftYB =  300;
   int rightXT = 150;
   int rightYT =  10;
   int rightXB = 130;
-  int rightYB = 400;
+  int rightYB = 350;
   
   PVector leftTop  = new PVector( leftXT,  leftYT);    //Left Top of section
   PVector rightTop = new PVector(rightXT, rightYT);    //Right Top of section
@@ -36,9 +36,6 @@ void setup()
   {
     noFill();
     stroke(#AEAEAE);
-    //noStroke();
-    //non-colored triangle
-    //triangle(rightTop.x,rightTop.y,rightBot.x,rightBot.y,leftBot.x,leftBot.y);
     line(rightBot.x,rightBot.y,leftBot.x,leftBot.y);
     noStroke();
     Kolor kol = kolors.getRandom();
@@ -53,23 +50,57 @@ void setup()
       v2.set(rightTop);
       rightTop.mult(1.3);
       rightBot.mult(1.3);
-      translate((v2.x-rightTop.x),v2.y-rightTop.y);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==1)
     {
       PVector v2 = new PVector(0.0, 0.0);
       v2.set(rightTop);
-      rightTop.mult(.7);
-      rightBot.mult(.7);
-      translate((v2.x-rightTop.x),v2.y-rightTop.y);
+      rightTop.mult(.8);
+      rightBot.mult(.8);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==2)
     {
       PVector v2 = new PVector(0.0, 0.0);
       v2.set(rightTop);
+      rightTop.mult(1);
+      rightBot.mult(1);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==3)
+    {
+      PVector v2 = new PVector(0.0, 0.0);
+      v2.set(rightTop);
+      rightTop.mult(1.5);
+      rightBot.mult(1.5);
+      PVector v1 = PVector.sub(v2,rightTop);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==4)
+    {
+      PVector v2 = new PVector(0.0, 0.0);
+      v2.set(rightTop);
+      rightTop.mult(.5);
+      rightBot.mult(.5);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==7)
+    {
+      PVector v2 = new PVector(0.0, 0.0);
+      v2.set(rightTop);
       rightTop.mult(1.2);
       rightBot.mult(1.2);
-      translate((v2.x-rightTop.x),v2.y-rightTop.y);
+      PVector v1 = PVector.sub(v2,rightTop);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==8)
+    {
+      PVector v2 = new PVector(0.0, 0.0);
+      v2.set(rightTop);
+      rightTop.mult(.8);
+      rightBot.mult(.8);
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     
     //Set left vectors to right vectors

@@ -69,54 +69,59 @@ void setup()
     v1.set(rightBot);
     v2.set(rightTop);
     
-    float change = random(0.5, 1.5);
+    float change = random(0.5, 1.2);
     
     if (i==0)
     {
+      change = 1.4;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
       noStroke();
-      rightTop.mult(1.3);  //1.3
-      rightBot.mult(1.3);  //1.3
-      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
-      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      rightTop.mult(change);  //1.3
+      rightBot.mult(change);  //1.3
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==1)
     {
-      stroke(#AEAEAE);
-      strokeWeight(strokeUnit);  
-      line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
-      noStroke();
-      rightTop.mult(0.8);  //0.8
-      rightBot.mult(0.8);  //0.8
-      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
-      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      change = 0.7;
+      //stroke(#AEAEAE);
+      //strokeWeight(strokeUnit);  
+      //line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
+      //noStroke();
+      rightTop.mult(change);  //0.8
+      rightBot.mult(change);  //0.8
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==2)
     {
+      change = 1.4;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
       noStroke();
       rightTop.mult(change);  //1.0
       rightBot.mult(change);  //1.0
-      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
-      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==3)
     {
+      change = 0.6;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
       noStroke();
       rightTop.mult(change);  //1.5
       rightBot.mult(change);  //1.5
-      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
-      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==4)
     {
+      change = 1.0;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
@@ -126,19 +131,57 @@ void setup()
       //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
+    if (i==5)
+    {
+      change = 1.3;
+      stroke(#AEAEAE);
+      strokeWeight(strokeUnit);  
+      line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
+      noStroke();
+      rightTop.mult(change);  //0.5
+      rightBot.mult(change);  //0.5
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==6)
+    {
+      change = .5;
+//      stroke(#AEAEAE);
+//      strokeWeight(strokeUnit);  
+//      line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
+//      noStroke();
+      rightTop.mult(change);  //0.5
+      rightBot.mult(change);  //0.5
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
     if (i==7)
     {
+      change = 1.5;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
       noStroke();
       rightTop.mult(change);  //1.2
       rightBot.mult(change);  //1.2
-      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
-      translate(v2.x-rightTop.x,v2.y-rightTop.y);
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==8)
     {
+      change = 0.6;
+      stroke(#AEAEAE);
+      strokeWeight(strokeUnit);  
+      line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
+      noStroke();
+      rightTop.mult(change);  //0.8
+      rightBot.mult(change);  //0.8
+      translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
+    }
+    if (i==9)
+    {
+      change = 0.8;
       stroke(#AEAEAE);
       strokeWeight(strokeUnit);  
       line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
@@ -148,6 +191,24 @@ void setup()
       //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
+    
+    
+//    if (change > 1.0)
+//    {
+//      stroke(#AEAEAE);
+//      strokeWeight(strokeUnit);  
+//      line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
+//      noStroke();
+//      rightTop.mult(change);  //1.0
+//      rightBot.mult(change);  //1.0
+//      translate(v1.x-rightBot.x, v1.y-rightBot.y);
+//    }
+//    else
+//    {
+//      rightTop.mult(change);  //1.0
+//      rightBot.mult(change);  //1.0
+//      translate(v2.x-rightTop.x, v2.y-rightTop.y);
+//    }
     
     //Set left vectors to right vectors
     leftTop.set(rightTop);

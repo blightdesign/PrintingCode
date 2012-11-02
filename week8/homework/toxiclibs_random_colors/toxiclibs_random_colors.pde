@@ -9,8 +9,11 @@ void setup()
   colorMode(HSB, 360, 100, 100);
   background(0,0,100); 
   smooth();
+  
+  int sectionNum = 9;
+  int unit = 25;
 
-  // loop through every pixel on the screen
+  // loop through every pixel on the screen to create natural background color
   for (int y = 0; y < height; y++) 
   {
     for (int x = 0; x < width; x++) 
@@ -19,20 +22,20 @@ void setup()
       noiseVal = noise((x) * noiseScale, (y) * noiseScale);
       //stroke(52, 6, 75 + (noiseVal*60));  //darker background
       //stroke(40, 1, 75 + (noiseVal*60));    //lighter background
-      stroke(48, 4, 77 + (noiseVal*60));  //middle background
+      stroke(48, 5, 77 + (noiseVal*60));  //middle background
       point(x,y);
     }
   }
 
-  int sectionNum = 9;
-
+  //Weighted Random color pallets
   WeightedRandomSet<Kolor> kolors = new WeightedRandomSet<Kolor>();
-
-  kolors.add(new Kolor(1, #192902, #5F9D47, 125), 4);
-  kolors.add(new Kolor(1, #855D05, #FAE824, 125), 3);
-  kolors.add(new Kolor(1, #450304, #DA2709, 125), 2);
-  kolors.add(new Kolor(1, #637A88, #FDFBFC, 125), 2);
+  // colorA, colorB, alpha percentage
+  kolors.add(new Kolor(1, #192902, #5F9D47, 180), 4);
+  kolors.add(new Kolor(1, #855D05, #FAE824, 180), 3);
+  kolors.add(new Kolor(1, #450304, #DA2709, 180), 2);
+  kolors.add(new Kolor(1, #637A88, #FDFBFC, 180), 2);
   
+  //Coordinates for the firsttriangles section
   int leftXT =  -50;
   int leftYT =   50;
   int leftXB = -100;
@@ -50,7 +53,7 @@ void setup()
   pushMatrix();
   translate (0,height/4);
   
-  // triangle sections loop
+  // triangles sections loop
   for (int i = 0; i < sectionNum + 1; i++)
   {
     noFill();
@@ -63,68 +66,58 @@ void setup()
     kol.kolorB();  // fills with color B from weighted random pick
     triangle(leftTop.x,leftTop.y,rightTop.x,rightTop.y,rightBot.x,rightBot.y);
     
+    PVector v1 = new PVector(0.0, 0.0);
+    PVector v2 = new PVector(0.0, 0.0);
+    v1.set(rightBot);
+    v2.set(rightTop);
+    
     if (i==0)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
       rightTop.mult(1.3);
       rightBot.mult(1.3);
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==1)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
       rightTop.mult(.8);
       rightBot.mult(.8);
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==2)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
       rightTop.mult(1);
       rightBot.mult(1);
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==3)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      PVector v1 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
-      v1.set(rightBot);
       rightTop.mult(1.5);
       rightBot.mult(1.5);
-      //PVector v1 = PVector.sub(v2,rightTop);
-      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
       translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+      //translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==4)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      PVector v1 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
-      v1.set(rightBot);
       rightTop.mult(.5);
       rightBot.mult(.5);
-     // translate(v2.x-rightTop.x,v2.y-rightTop.y);
       translate((v1.x-rightBot.x),(v1.y-rightBot.y));
+     // translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==7)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
       rightTop.mult(1.2);
       rightBot.mult(1.2);
-      PVector v1 = PVector.sub(v2,rightTop);
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     if (i==8)
     {
-      PVector v2 = new PVector(0.0, 0.0);
-      v2.set(rightTop);
       rightTop.mult(.8);
       rightBot.mult(.8);
+      //translate((v1.x-rightBot.x),(v1.y-rightBot.y));
       translate(v2.x-rightTop.x,v2.y-rightTop.y);
     }
     
@@ -132,25 +125,14 @@ void setup()
     leftTop.set(rightTop);
     leftBot.set(rightBot);
     
-    PVector stepTop = new PVector(random(50,150),random(-50,50));
-    PVector stepBot = new PVector(random(50,170),random(-50,50));
+    //Get new random vectors
+    PVector stepTop = new PVector(random(50,150),random(-25,30));
+    PVector stepBot = new PVector(random(50,170),random(-25,30));
     
     //Set right vectors to new vectors
     rightTop.add(stepTop);
     rightBot.add(stepBot);
   }
   popMatrix();
-  
-//  // loop through every pixel on the screen
-//  for (int y = 0; y < height; y++) 
-//  {
-//    for (int x = 0; x < width; x++) 
-//    {
-//      noiseDetail(10,.6);
-//      noiseVal = noise((x) * noiseScale, (y) * noiseScale);
-//      stroke(52, 6, 75 + (noiseVal*60),60);  //darker background
-//      //stroke(40, 1, 60 + (noiseVal*60),60);    //lighter background
-//      point(x,y);
-//    }
-//  }
+
 }

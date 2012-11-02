@@ -1,10 +1,28 @@
 import toxi.util.datatypes.*;
 
+float noiseVal;
+float noiseScale=0.005;
+
 void setup()
 {
   size(1280, 800);
-  background(255); 
+  colorMode(HSB, 360, 100, 100);
+  background(0,0,100); 
   smooth();
+
+  // loop through every pixel on the screen
+  for (int y = 0; y < height; y++) 
+  {
+    for (int x = 0; x < width; x++) 
+    {
+      noiseDetail(15,.6);
+      noiseVal = noise((x) * noiseScale, (y) * noiseScale);
+      //stroke(52, 6, 75 + (noiseVal*60));  //darker background
+      //stroke(40, 1, 75 + (noiseVal*60));    //lighter background
+      stroke(48, 4, 77 + (noiseVal*60));  //middle background
+      point(x,y);
+    }
+  }
 
   int sectionNum = 9;
 
@@ -29,6 +47,7 @@ void setup()
   PVector leftBot  = new PVector( leftXB,  leftYB);    //Left Bottom of Section
   PVector rightBot = new PVector(rightXB, rightYB);    //Right Bottom of section
 
+  pushMatrix();
   translate (0,height/4);
   
   // triangle sections loop
@@ -120,4 +139,18 @@ void setup()
     rightTop.add(stepTop);
     rightBot.add(stepBot);
   }
+  popMatrix();
+  
+//  // loop through every pixel on the screen
+//  for (int y = 0; y < height; y++) 
+//  {
+//    for (int x = 0; x < width; x++) 
+//    {
+//      noiseDetail(10,.6);
+//      noiseVal = noise((x) * noiseScale, (y) * noiseScale);
+//      stroke(52, 6, 75 + (noiseVal*60),60);  //darker background
+//      //stroke(40, 1, 60 + (noiseVal*60),60);    //lighter background
+//      point(x,y);
+//    }
+//  }
 }

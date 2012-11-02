@@ -58,7 +58,7 @@ void setup()
   {
     noFill();
     stroke(#AEAEAE);
-    line(rightBot.x,rightBot.y,leftBot.x,leftBot.y);
+    line(rightBot.x, rightBot.y, leftBot.x, leftBot.y);
     noStroke();
     Kolor kol = kolors.getRandom();
     kol.kolorA();  // fills with color A from weighted random pick

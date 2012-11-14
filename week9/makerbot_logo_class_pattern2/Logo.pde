@@ -21,7 +21,7 @@ class Logo {
    {
      pushMatrix();
      translate(x,y);
-     //rotate(radians(rotation));
+     rotate(radians(rotation));
      noStroke();
      
      fill(bgColor);

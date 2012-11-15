@@ -9,6 +9,10 @@ void setup()
   size(600, 600);
   smooth();
   //background(0,0,0);
+  
+  int unit = 5;
+  int diam = unit*34;
+  int step = unit*17;  //half of diam
 
   for(int x = step; x < width; x += step*2)
   {

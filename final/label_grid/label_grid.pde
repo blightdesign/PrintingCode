@@ -6,7 +6,8 @@ void setup()
   smooth();
   
   // create a grid object as a container for our grid variables
-  Grid grid = new Grid(5, 50);
+  Grid grid  = new Grid(5,  50);  //grid for main folded section
+  GridSmall gridSmall = new GridSmall(4, 50); //grid for copy and images
   
   fill(30);
   
@@ -22,6 +23,8 @@ void setup()
   
   // we can even implement a function that draws the grid for us
   grid.display();
+  //strokeWeight(3);
+  gridSmall.display();
   
   //saveFrame("grab.png");
 }

@@ -9,34 +9,10 @@ class Grid
     num = _num;
     pageMargin = _pageMargin;
     
-    // cache the full width of all rows
-    float fullWidth = width - (2*pageMargin);
-    float[] rands = new float[num];
-    float ranSum = 0;
-  
-    for(int i = 0; i < rands.length; i++)
-    {
-      // generate a number between 0 and 1
-      rands[i] = random(1);
-   
-      // OPTIONAL! tweak the number to avoid too big a size difference
-      if(rands[i] < 0.3)  rands[i] = 0.3;
-   
-      // add to the sum
-      ranSum += rands[i];
-    }
-  
-    // now divide each random number with its sum to normalize and multiply by full width
-    for(int i = 0; i < rands.length; i++)
-    {
-       rands[i] = (rands[i] / ranSum) * fullWidth; 
-    }
-    
     // make column objects
     rows = new Row[num];
     //float xPos = pageMargin;
     float yPos = pageMargin;
-    
     
     
     for(int i = 0; i < num; i++)
@@ -75,7 +51,7 @@ class Grid
     stroke(255, 0, 0, 100);
     rect(pageMargin, pageMargin, width - (2*pageMargin), height - (2*pageMargin));
     
-    // draw each column
+    // draw each row
     for(int i = 0; i < num; i++)
     {
       rect(rows[i].x, rows[i].y, rows[i].w, rows[i].h);

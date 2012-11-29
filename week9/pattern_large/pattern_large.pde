@@ -29,7 +29,7 @@ void setup()
 { 
   size(1300, 850);
   background(30);
-  
+  colorMode(HSB, 360, 100, 100);
   //canvas = createGraphics(canvas_width, canvas_height, P2D);
   canvas = createGraphics(canvas_width, canvas_height, JAVA2D);
   

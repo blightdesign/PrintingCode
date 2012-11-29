@@ -18,12 +18,13 @@ void setup()
   smooth();
   background(250, 100, 2);  // should match bgColor
   
-  int unit = 2;
+  int unit = 3;
   int diam = unit*34;
   int step = unit*17;  //half of diam
   color bgColor =     color(250, 100,   2);  //should match the background color
   color kolor =       color(358,  88,  60);
-  color brightColor = color(358,  88,  84);
+  //color brightColor = color(358,  88,  84);
+  color brightColor = color(358,  88,  75);
   
   int i =1;
   
@@ -69,4 +70,5 @@ void setup()
       dBrightLogo.displayD(); 
     }
   }
+  //save("grab3.tif");
 }

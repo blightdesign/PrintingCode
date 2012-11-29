@@ -1,0 +1,27 @@
+Generative Label for Mobile Homes
+
+What is Mobile Homes
+
+I have a need for a packaging redesign for a product I make called Mobile Homes (http://blightdesign.com/misc_mobile.html).  Mobiles made up of small  wooden houses.
+
+Image of mobile
+
+There is an order for 40 units and I would like to repackage the mobiles and give each one a unique label.  My goal is to make the label a desirable object that one would like to hang on the wall.  Each label would be a print in essence, and would have the print number on it (number 3 of 40 for example).
+
+Due to constraints, the mobile must be packaged in a 10.5" x 3.5" x 1.25" cardboard box.
+
+Image of box
+
+I plan on showing off the mobile image in a generative format.  The mobiles will come in two colors, red and natural poplar, I would like to create labels with two distant color pallets, red and blonde.  
+
+The label must have the product name on it, fit the selected packaging, must have my information (name, logo, website url), print number ("print x of 40"), and possible more misc. info.
+
+I want the label to be a folded sleeve that will slide over the box.
+
+mage of sleeve
+
+I would like to give the overall design a hand drawn look, similar to http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/randomization/toxiclibs_splines_5.jpg.  
+
+Image of 
+
+Font choice(s) will need to be addressed.  A grid system based on the sleeve folds will need to be developed.  And paper selection and folding methods will need to be researched.

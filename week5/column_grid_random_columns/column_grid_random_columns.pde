@@ -6,7 +6,7 @@ void setup()
   smooth();
   
   // create a grid object as a container for our grid variables
-  Grid grid = new Grid(6, 50);
+  Grid grid = new Grid(5, 50);
   
   fill(30);
   
@@ -17,12 +17,12 @@ void setup()
   // look how nice it is!
   Column fourthColumn = grid.columns[3];
   Column fifthColumn = grid.columns[4];
-  ellipseMode(CORNER);
-  ellipse(fourthColumn.x, (fourthColumn.y + fourthColumn.h) - (fourthColumn.w + fifthColumn.w), fourthColumn.w + fifthColumn.w, fourthColumn.w + fifthColumn.w);
+ // ellipseMode(CORNER);
+ // ellipse(fourthColumn.x, (fourthColumn.y + fourthColumn.h) - (fourthColumn.w + fifthColumn.w), fourthColumn.w + fifthColumn.w, fourthColumn.w + fifthColumn.w);
   
   // we can even implement a function that draws the grid for us
   grid.display();
   
-  saveFrame("grab.png");
+  //saveFrame("grab.png");
 }
 

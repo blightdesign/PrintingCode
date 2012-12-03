@@ -2,46 +2,40 @@ class Grid
 {
   int num;  //number of rows
   float pageMargin;
+  float heightSmall;
+  float heightMed;
+  float heightBig;
   Row[] rows;
   
-  Grid(int _num, float _pageMargin)
+  Grid(int _num, float _pageMargin, float _heightSmall, float _heightMed, float _heightBig)
   {
     num = _num;
     pageMargin = _pageMargin;
+    heightSmall = _heightSmall;
+    heightMed =   _heightMed;
+    heightBig =   _heightBig;
     
-    // make column objects
+    // make row objects
     rows = new Row[num];
-    //float xPos = pageMargin;
     float yPos = pageMargin;
-    
     
     for(int i = 0; i < num; i++)
     {
       rows[i] = new Row();
-      //rows[i].x = xPos;
-      //rows[i].y = pageMargin;
       rows[i].x = pageMargin;
-      //rows[i].y = yPos;
-      //rows[i].w = rands[i];
-      //rows[i].h = height - (2*pageMargin);
       rows[i].w = width - (2*pageMargin);
-      //rows[i].h = rands[i];
-      //rows[i].h = 50;
-      
-      //xPos += rands[i];
-      //yPos += rows[i].h;
     }
-    rows[0].h = 150;
-    rows[1].h = 75;
-    rows[2].h = 250;
-    rows[3].h = 75;
-    rows[4].h = 150;
+    rows[0].h = heightMed;
+    rows[1].h = heightSmall;
+    rows[2].h = heightBig;
+    rows[3].h = heightSmall;
+    rows[4].h = heightMed;
     
     rows[0].y = pageMargin;
-    rows[1].y = pageMargin + 150;
-    rows[2].y = pageMargin + 150 + 75;
-    rows[3].y = pageMargin + 150 + 75 + 250;
-    rows[4].y = pageMargin + 150 + 75 + 250 + 75;
+    rows[1].y = pageMargin + heightMed;
+    rows[2].y = pageMargin + heightMed + heightSmall;
+    rows[3].y = pageMargin + heightMed + heightSmall + heightBig;
+    rows[4].y = pageMargin + heightMed + heightSmall + heightBig + heightSmall;
   }
 
   void display()
@@ -49,8 +43,6 @@ class Grid
     // draw big bounding box
     noFill();
     stroke(255, 0, 0, 100);
-    rect(pageMargin, pageMargin, width - (2*pageMargin), height - (2*pageMargin));
-    
     // draw each row
     for(int i = 0; i < num; i++)
     {

@@ -45,6 +45,7 @@ class Grid
       columns[i].h = height - (2*pageMargin);
       
       xPos += rands[i];
+      
     }
   }
 

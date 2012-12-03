@@ -1,52 +1,54 @@
 class GridSmall
 {
-  int cols;  //number of cols
+  int num;  //number of rows
   float pageMargin;
-  Column[] columns;
+  float heightOne;
+  float heightTwo;
+  float heightThree;
+  float heightFour;
+  Row[] rows;
   
-  GridSmall(int _cols, float _pageMargin)
+  GridSmall(int _num, float _pageMargin, float _heightOne, float _heightTwo, float _heightThree, float _heightFour)
   {
-    cols = _cols;
+    num = _num;
     pageMargin = _pageMargin;
+    heightOne =   _heightOne;
+    heightTwo =   _heightTwo;
+    heightThree = _heightThree;
+    heightFour = _heightFour;
     
-    // make column objects
-    columns = new Column[cols];
-    float xPos = pageMargin;
+     // make column objects
+    rows = new Row[num];
+    float yPos = pageMargin;
     
-    
-    for(int i = 0; i < cols; i++)
+    for(int i = 0; i < num; i++)
     {
-      columns[i] = new Column();
-      //columns[i].x = xPos;
-      columns[i].y = pageMargin; 
-      //columns[i].w = 200;
-      columns[i].h = height - (2*pageMargin);
-      
-      //xPos += 200;
+      rows[i] = new Row();
+      rows[i].x = pageMargin;
+      rows[i].w = width - (2*pageMargin);
     }
- 
-   columns[0].w = 25;
-   columns[1].w = 400;
-   columns[2].w = width - (2*pageMargin) - 25 -25 -400;
-   columns[3].w = 25;
-   
-   columns[0].x = pageMargin;
-   columns[1].x = pageMargin + 25;
-   columns[2].x = pageMargin + 25 + 400;
-   columns[3].x = pageMargin + 25 + 400 + columns[2].w;
+    rows[0].h = heightOne;
+    rows[1].h = heightTwo;
+    rows[2].h = heightThree;
+    rows[3].h = heightFour;
+    
+    rows[0].y = pageMargin;
+    rows[1].y = pageMargin + heightOne;
+    rows[2].y = pageMargin + heightOne + heightTwo;
+    rows[3].y = pageMargin + heightOne + heightTwo + heightThree;
   }
+
 
   void display()
   {
     // draw big bounding box
     noFill();
     stroke(0, 0, 255, 100);
-    rect(pageMargin, pageMargin, width - (2*pageMargin), height - (2*pageMargin));
     
     // draw each row
-    for(int i = 0; i < cols; i++)
+    for(int i = 0; i < num; i++)
     {
-      rect(columns[i].x, columns[i].y, columns[i].w, columns[i].h);
+      rect(rows[i].x, rows[i].y, rows[i].w, rows[i].h);
     }
   }
 }

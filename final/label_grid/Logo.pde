@@ -13,9 +13,10 @@ class Logo
   
   void displayLogo()
   {
-    fill(359,100,40,50);
+    //fill(359,100,40,50);
     pushMatrix();
     translate(x, y);
+    noStroke();
     // L
     beginShape();
       vertex(0.0*smallFontSize,1.19*smallFontSize);

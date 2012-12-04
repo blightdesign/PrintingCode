@@ -42,7 +42,7 @@ class Grid
   {
     // draw big bounding box
     noFill();
-    stroke(255, 0, 0, 100);
+    stroke(100, 100,100, 100);
     // draw each row
     for(int i = 0; i < num; i++)
     {

@@ -43,7 +43,7 @@ class GridSmall
   {
     // draw big bounding box
     noFill();
-    stroke(0, 0, 255, 100);
+    stroke(100, 100, 100, 100);
     
     // draw each row
     for(int i = 0; i < num; i++)

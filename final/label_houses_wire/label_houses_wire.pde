@@ -9,10 +9,15 @@ void setup()
 {
   size(1200, 800);
   background(255); 
+  colorMode(HSB, 360, 100, 100);
   smooth();
   noFill();
   strokeWeight(3);
-  stroke(0,0,255);
+  
+  int hTextColor =   0; //Color for text with Red background
+  int sTextColor =   0; //Color for text with Red background
+  int bTextColor =   0; //Color for text with Red background
+  stroke(hTextColor, sTextColor, bTextColor);
   
   // Used for Reference
 //  img = loadImage("label_stamped_med.jpg");
@@ -143,7 +148,7 @@ void setup()
   }
   endShape();
   //Draw House
-  fill(0,0,255);
+  fill(hTextColor, sTextColor, bTextColor);
   houseA = new House(t.x+(rHook/2), t.y+(rHook), unit, 1);
   houseA.displayHouse2();
   noFill();
@@ -184,7 +189,7 @@ void setup()
   }
   endShape();
   //Draw House
-  fill(0,0,255);
+  fill(hTextColor, sTextColor, bTextColor);
   houseB = new House(s2.x-(rHook/2), s2.y+(rHook), unit, 1);
   houseB.displayHouse1();
   noFill();
@@ -225,7 +230,7 @@ void setup()
   }
   endShape();
   //Draw House
-  fill(0,0,255);
+  fill(hTextColor, sTextColor, bTextColor);
   houseC = new House(t3.x+(rHook/2), t3.y+(rHook), unit, 1);
   houseC.displayHouse2();
   noFill();
@@ -266,7 +271,7 @@ void setup()
   }
   endShape();
   //Draw House
-  fill(0,0,255);
+  fill(hTextColor, sTextColor, bTextColor);
   houseD = new House(s4.x-(rHook/2), s4.y+(rHook), unit, 1);
   houseD.displayHouse2();  
   houseE = new House(t4.x+(rHook/2), t4.y+(rHook), unit, 1);

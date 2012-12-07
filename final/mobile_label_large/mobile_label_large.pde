@@ -75,7 +75,7 @@ void setup()
 
 // --------------------------------------------------------------------------------  
 //FONTS
-  int fontSize = 85;  //size of copy text
+  int fontSize = 55;  //size of copy text
   int fontTitleSize = 130; //size of title text
   
   RG.init(this);  // initialize the geomerative library
@@ -103,7 +103,7 @@ void setup()
     int bBGColor2 =   76; //Color for Red background
     int hTextColor =   0; //Color for text with Red background
     int sTextColor =   0; //Color for text with Red background
-    int bTextColor = 99; //Color for text with Red background
+    int bTextColor =  99; //Color for text with Red background
     int hLogoColor =   0; //Color for Logo with Red Background
     int sLogoColor =   0; //Color for Logo with Red Background
     int bLogoColor =  99; //Color for Logo with Red Background
@@ -116,10 +116,10 @@ void setup()
 //    int bBGColor2 =   97; //Color for Natural Wood Color background
 //    int hTextColor =   0; //Color for text with Natural Wood Color background
 //    int sTextColor =   0; //Color for text with Natural Wood Color background
-//    int bTextColor =  20; //Color for text with Natural Wood Color background
+//    int bTextColor =  30; //Color for text with Natural Wood Color background
 //    int hLogoColor =   0; //Color for Logo with Natural Wood Color background
 //    int sLogoColor =   0; //Color for Logo with Natural Wood Color background
-//    int bLogoColor =  20; //Color for Logo with Natural Wood Color background
+//    int bLogoColor =  30; //Color for Logo with Natural Wood Color background
  
     // create a grid object as a container for our grid variables
     Grid grid  = new Grid(5, pageMargin, heightSmall, heightMed, heightBig);  //grid for main folded sections
@@ -179,10 +179,12 @@ void setup()
     
   // FRONT OF LABEL
     Row frontModule = gridSmall.rows[1];
+    //canvas.noStroke();
     canvas.pushMatrix();
       canvas.translate(frontModule.x-5, frontModule.y+fontTitleSize-20); //the 5- is there for fine tuning
       fontTitle.draw("MOBILE HOMES", canvas);
     canvas.popMatrix();
+    //canvas.stroke(hTextColor, sTextColor, bTextColor);
     
   // SIDE OF LABEL
     Row sideModule = gridSmall.rows[2];
@@ -191,28 +193,20 @@ void setup()
     
   // BACK OF LABEL
     Row backModule = gridSmall.rows[3];
+    canvas.strokeWeight(1);
     canvas.pushMatrix();
       canvas.translate(backModule.x, backModule.y+fontSize-(fontSize/5));
-      font.draw("Handmade mobile made of small wooden houses.  Who", canvas);  //Add Line Break?
+      font.draw("Handmade mobile made of small wooden houses.  Who doesn't love a bad pun?", canvas);  //Add Line Break?
       canvas.pushMatrix();
         canvas.translate(0, 1.15*fontSize);
-        font.draw("doesn't love a bad pun?  Designed and built in New York City", canvas);
-        //textSize(148); 
-        //String textTest = "Designed and built by your friend Ben Light in New York City.";
-        //text(textTest,100,500);
-      canvas.popMatrix();
-      canvas.pushMatrix();
-        canvas.translate(0, 2*1.15*fontSize);
-        font.draw("by your friend Ben Light.", canvas);
-        //textSize(148); 
-        //String textTest = "Designed and built by your friend Ben Light in New York City.";
-        //text(textTest,100,500);
+        font.draw("Designed and built in New York City by your friend Ben.", canvas);
       canvas.popMatrix();
       canvas.pushMatrix();
         canvas.translate(0, backModule.h-fontSize);
         font.draw("www.blightdesign.com",canvas);
       canvas.popMatrix();
     canvas.popMatrix();
+    canvas.strokeWeight(5);  //FIX
     
     canvas.fill(hLogoColor, sLogoColor, bLogoColor);
     myLogo = new Logo(backModule.w+pageMargin/2+10, backModule.y+backModule.h-(1.19*smallFontSize), smallFontSize); //the 10 is for fine tuning
@@ -355,8 +349,8 @@ void setup()
 //  --------------------------------------------------------------------------------
 // DISPLAY GRID LINES (turn off before printing)
     canvas.strokeWeight(5);
-    grid.display();  //Fold and cutline grid
-    gridSmall.display(); //borders for copy and images
+    //grid.display();  //Fold and cutline grid
+    //gridSmall.display(); //borders for copy and images
     //center line for testing
     //canvas.line((firstRow.w/2), firstRow.y-(pageMargin/4), firstRow.w/2, firstRow.h+secondRow.h+thirdRow.h+fourthRow.h+fifthRow.h+(pageMargin/2));
   

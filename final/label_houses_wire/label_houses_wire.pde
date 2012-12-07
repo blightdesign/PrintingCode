@@ -23,7 +23,7 @@ void setup()
 //  img = loadImage("label_stamped_med.jpg");
 //  image(img, 0,0);
   
-  float unit = .75;
+  float unit = .75; // Controls the size of everything
   
   int rRing = 18; //Radius of ring
   int rHook = 12; //radius of hook

@@ -44,18 +44,18 @@ class House
     pushMatrix();
     translate(x, y);
     beginShape();
-      vertex( -38*unit,  35*unit);
+      vertex(-38*unit,  35*unit);
       vertex(-18*unit,  11*unit);
-      vertex(18*unit,   0*unit);
-      vertex(39*unit,  24*unit);
-      vertex(39*unit,  75*unit);
-      vertex(5*unit,  96*unit);
+      vertex( 18*unit,   0*unit);
+      vertex( 39*unit,  24*unit);
+      vertex( 39*unit,  75*unit);
+      vertex(  5*unit,  96*unit);
       vertex(-11*unit,  96*unit);
       vertex(-11*unit,  67*unit);
       vertex(-22*unit,  67*unit);
       vertex(-22*unit,  96*unit);
-      vertex( -38*unit,  96*unit);
-      vertex( -38*unit,  35*unit);
+      vertex(-38*unit,  96*unit);
+      vertex(-38*unit,  35*unit);
     endShape();
     if (stickFlag == 1)
     {
@@ -63,5 +63,4 @@ class House
     }
     popMatrix();
   }
-  
 }

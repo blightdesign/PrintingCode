@@ -75,8 +75,8 @@ void setup()
 
 // --------------------------------------------------------------------------------  
 //FONTS
-  int fontSize = 45;  //size of copy text
-  int fontTitleSize = 100; //size of title text
+  int fontSize = 55;  //size of copy text
+  int fontTitleSize = 130; //size of title text
   
   RG.init(this);  // initialize the geomerative library
   //RFont font = new RFont("FreeSans.ttf", fontSize, RFont.LEFT);  // create a new font for text
@@ -103,7 +103,7 @@ void setup()
     int bBGColor2 =   76; //Color for Red background
     int hTextColor =   0; //Color for text with Red background
     int sTextColor =   0; //Color for text with Red background
-    int bTextColor = 99; //Color for text with Red background
+    int bTextColor =  99; //Color for text with Red background
     int hLogoColor =   0; //Color for Logo with Red Background
     int sLogoColor =   0; //Color for Logo with Red Background
     int bLogoColor =  99; //Color for Logo with Red Background
@@ -116,10 +116,10 @@ void setup()
 //    int bBGColor2 =   97; //Color for Natural Wood Color background
 //    int hTextColor =   0; //Color for text with Natural Wood Color background
 //    int sTextColor =   0; //Color for text with Natural Wood Color background
-//    int bTextColor =  20; //Color for text with Natural Wood Color background
+//    int bTextColor =  30; //Color for text with Natural Wood Color background
 //    int hLogoColor =   0; //Color for Logo with Natural Wood Color background
 //    int sLogoColor =   0; //Color for Logo with Natural Wood Color background
-//    int bLogoColor =  20; //Color for Logo with Natural Wood Color background
+//    int bLogoColor =  30; //Color for Logo with Natural Wood Color background
  
     // create a grid object as a container for our grid variables
     Grid grid  = new Grid(5, pageMargin, heightSmall, heightMed, heightBig);  //grid for main folded sections
@@ -179,10 +179,12 @@ void setup()
     
   // FRONT OF LABEL
     Row frontModule = gridSmall.rows[1];
+    //canvas.noStroke();
     canvas.pushMatrix();
       canvas.translate(frontModule.x-5, frontModule.y+fontTitleSize-20); //the 5- is there for fine tuning
       fontTitle.draw("MOBILE HOMES", canvas);
     canvas.popMatrix();
+    //canvas.stroke(hTextColor, sTextColor, bTextColor);
     
   // SIDE OF LABEL
     Row sideModule = gridSmall.rows[2];
@@ -191,14 +193,20 @@ void setup()
     
   // BACK OF LABEL
     Row backModule = gridSmall.rows[3];
+    canvas.strokeWeight(1);
     canvas.pushMatrix();
-      canvas.translate(backModule.x, backModule.y+fontSize);
-      font.draw("Mobile Homes - mobile made of small wooden houses, who doesn't love a bad pun?", canvas);  //Add Line Break?
-      canvas.translate(0, fontSize);
-      font.draw("Designed and built by your friend Ben Light in New York City.", canvas);
-      canvas.translate(0, fontSize);
-      font.draw("www.blightdesign.com",canvas);
+      canvas.translate(backModule.x, backModule.y+fontSize-(fontSize/5));
+      font.draw("Handmade mobile made of small wooden houses.  Who doesn't love a bad pun?", canvas);  //Add Line Break?
+      canvas.pushMatrix();
+        canvas.translate(0, 1.15*fontSize);
+        font.draw("Designed and built in New York City by your friend Ben.", canvas);
+      canvas.popMatrix();
+      canvas.pushMatrix();
+        canvas.translate(0, backModule.h-fontSize);
+        font.draw("www.blightdesign.com",canvas);
+      canvas.popMatrix();
     canvas.popMatrix();
+    canvas.strokeWeight(5);  //FIX
     
     canvas.fill(hLogoColor, sLogoColor, bLogoColor);
     myLogo = new Logo(backModule.w+pageMargin/2+10, backModule.y+backModule.h-(1.19*smallFontSize), smallFontSize); //the 10 is for fine tuning
@@ -213,74 +221,152 @@ void setup()
   //Set Points
   //Wire 1
       ArrayList<Vec2D> points = new ArrayList();
+      float ran = random(130);
       for (int i = 0; i < pointNum; i++)
       {
-        float ran = random(0);  //
-        float x = i * pointWidth-ran;
-        float y = 0-ran;
-        if (i == 1  || i == 6){
-          y= -(60-ran)*unitMobile;
+        float x = i * pointWidth;
+        float y = 0;
+        if (i ==0){
+          x = (i * pointWidth)+(ran);
         }
-        if (i == 2 || i == 5){
-          y = -(90-ran)*unitMobile;
+        if (i == 1){
+          x = (i * pointWidth)+(.666*ran);
+          y= -60;
         }
-        if (i == 3 || i == 4){
-          y = -(105-ran)*unitMobile;
+        if (i ==2){
+          x = (i * pointWidth)+(.333*ran);
+          y = - 90;
+        }
+        if (i ==3){
+          y = - 105;
+        }
+        if (i ==4){
+          y = - 105;
+        }
+        if (i == 5){
+          x = (i * pointWidth)-(.333*ran);
+          y = - 90;
+        }
+        if (i == 6){
+          x = (i * pointWidth)-(.666*ran);
+          y= -60;
+        }
+        if (i == 7){
+          x = (i * pointWidth)-(ran);
         }
         Vec2D p = new Vec2D(x, y);
         points.add(p);
       }
   //Wire 2
       ArrayList<Vec2D> points2 = new ArrayList();
+      float ran2 = random(140);
       for (int i = 0; i < pointNum; i++)
       {
-        float ran = random(20);
-        float x = i * pointWidth2-ran;
-        float y = 0-ran;
-        if (i == 1  || i == 6){
-          y= -(60-ran)*unitMobile;
+        float x = i * pointWidth2;
+        float y = 0;
+        if (i ==0){
+          x = (i * pointWidth2)+(ran2);
         }
-        if (i == 2 || i == 5){
-          y = -(90-ran)*unitMobile;
+        if (i == 1){
+          x = (i * pointWidth2)+(.666*ran2);
+          y= -60;
         }
-        if (i == 3 || i == 4){
-          y = -(105-ran)*unitMobile;
+        if (i ==2){
+          x = (i * pointWidth2)+(.333*ran2);
+          y = - 90;
+        }
+        if (i ==3){
+          y = - 105;
+        }
+        if (i ==4){
+          y = - 105;
+        }
+        if (i == 5){
+          x = (i * pointWidth2)-(.333*ran2);
+          y = - 90;
+        }
+        if (i == 6){
+          x = (i * pointWidth2)-(.666*ran2);
+          y= -60;
+        }
+        if (i == 7){
+          x = (i * pointWidth2)-(ran2);
         }
         Vec2D p2 = new Vec2D(x, y);
         points2.add(p2);
       }
   //Wire 3
       ArrayList<Vec2D> points3 = new ArrayList();
+      float ran3 = random(100);
       for (int i = 0; i < pointNum; i++)
       {
-        float x = i * pointWidth3-random(20);
+        float x = i * pointWidth3;
         float y = 0;
-        if (i == 1  || i == 6){
-          y= -30*unitMobile;
+        if (i ==0){
+          x = (i * pointWidth3)+(ran3);
         }
-        if (i == 2 || i == 5){
-          y = - 50*unitMobile;
+        if (i == 1){
+          x = (i * pointWidth3)+(.666*ran3);
+          y= -30;
         }
-        if (i == 3 || i == 4){
-          y = - 60*unitMobile;
+        if (i ==2){
+          x = (i * pointWidth3)+(.333*ran3);
+          y = - 50;
+        }
+        if (i ==3){
+          y = - 60;
+        }
+        if (i ==4){
+          y = - 60;
+        }
+        if (i == 5){
+          x = (i * pointWidth3)-(.333*ran3);
+          y = - 50;
+        }
+        if (i == 6){
+          x = (i * pointWidth3)-(.666*ran3);
+          y= -30;
+        }
+        if (i == 7){
+          x = (i * pointWidth3)-(ran3);
         }
         Vec2D p3 = new Vec2D(x, y);
         points3.add(p3);
       }
   //Wire 4
       ArrayList<Vec2D> points4 = new ArrayList();
+      float ran4 = random(80);
       for (int i = 0; i < pointNum; i++)
       {
-        float x = i * pointWidth4-random(20);
+        float x = i * pointWidth4;
         float y = 0;
-        if (i == 1  || i == 6){
-          y= -30*unitMobile;
+        if (i ==0){
+          x = (i * pointWidth4)+(ran4);
         }
-        if (i == 2 || i == 5){
-          y = - 50*unitMobile;
+        if (i == 1){
+          x = (i * pointWidth4)+(.666*ran4);
+          y= -30;
         }
-        if (i == 3 || i == 4){
-          y = - 60*unitMobile;
+        if (i ==2){
+          x = (i * pointWidth4)+(.333*ran4);
+          y = - 50;
+        }
+        if (i ==3){
+          y = - 60;
+        }
+        if (i ==4){
+          y = - 60;
+        }
+        if (i == 5){
+          x = (i * pointWidth4)-(.333*ran4);
+          y = - 50;
+        }
+        if (i == 6){
+          x = (i * pointWidth4)-(.666*ran4);
+          y= -30;
+        }
+        if (i == 7){
+          x = (i * pointWidth4)-(ran4);
         }
         Vec2D p4 = new Vec2D(x, y);
         points4.add(p4);
@@ -343,7 +429,7 @@ void setup()
 //  --------------------------------------------------------------------------------
 // DISPLAY GRID LINES (turn off before printing)
     canvas.strokeWeight(5);
-    grid.display();  //Fold and cutline grid
+    //grid.display();  //Fold and cutline grid
     gridSmall.display(); //borders for copy and images
     //center line for testing
     //canvas.line((firstRow.w/2), firstRow.y-(pageMargin/4), firstRow.w/2, firstRow.h+secondRow.h+thirdRow.h+fourthRow.h+fifthRow.h+(pageMargin/2));
@@ -359,11 +445,12 @@ void setup()
   
   //canvas.save("grab.png");
   
-  canvas.save("grab" +sec +".tiff");
+  //canvas.save("grab" +sec +".tiff");
 }
 
 void drawIt(ArrayList<Vec2D> points, Vec2D s, Vec2D q, Vec2D t)
 {
+  canvas.smooth();
   canvas.pushMatrix();
     canvas.translate(-(rHook/2),(rHook/2));
     canvas.arc((s.x), (s.y), rHook, rHook, radians(330), radians(360));
@@ -382,13 +469,13 @@ void drawIt(ArrayList<Vec2D> points, Vec2D s, Vec2D q, Vec2D t)
   canvas.popMatrix();
   //Draw the wire
   Spline2D spline = new Spline2D(points);
-  ArrayList<Vec2D> morePoints = (ArrayList) spline.getDecimatedVertices(50, false);
+  ArrayList<Vec2D> morePoints = (ArrayList) spline.getDecimatedVertices(10, false);
   canvas.beginShape();
   canvas.vertex(s.x, s.y);
   for(int i = 0; i < morePoints.size(); i++) 
   {
     Vec2D p = morePoints.get(i);
-    canvas.vertex(p.x + random(2), p.y + random(2));
+    canvas.vertex(p.x , p.y );
     canvas.vertex(p.x, p.y);
   }
   canvas.vertex(t.x, t.y);
